@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { X, Check, Copy, AlertTriangle } from 'lucide-react';
 import { PersonalAccessToken } from '../types';

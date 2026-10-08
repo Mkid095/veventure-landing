@@ -1,59 +1,31 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
+'use client';
 
-import React, { useState, useEffect } from 'react';
-import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { TrustLogos } from './components/TrustLogos';
-import { Features } from './components/Features';
-import { McpSection } from './components/McpSection';
-import { Pricing } from './components/Pricing';
-import { Footer } from './components/Footer';
-import { PublicDocs } from './components/PublicDocs';
-import { DashboardView } from './components/DashboardView';
-import { ViewMode } from './types';
+import React, { useState } from 'react';
+import { Navbar } from '../components/Navbar';
+import { Hero } from '../components/Hero';
+import { TrustLogos } from '../components/TrustLogos';
+import { Features } from '../components/Features';
+import { McpSection } from '../components/McpSection';
+import { Pricing } from '../components/Pricing';
+import { Footer } from '../components/Footer';
+import { PublicDocs } from '../components/PublicDocs';
+import { DashboardView } from '../components/DashboardView';
+import { ViewMode } from '../types';
 import { Check, X } from 'lucide-react';
 
-export default function App() {
+export default function HomePage() {
   const [currentView, setCurrentView] = useState<ViewMode>('landing');
   const [activeDocId, setActiveDocId] = useState<string>('introduction');
   const [contactModalOpen, setContactModalOpen] = useState(false);
   const [contactSubmitted, setContactSubmitted] = useState(false);
   const [salesEmail, setSalesEmail] = useState('');
 
-  // Handle URL hash and back-forward navigation
-  useEffect(() => {
-    const handleHash = () => {
-      const hash = window.location.hash;
-      if (hash === '#docs') {
-        setCurrentView('docs');
-      } else if (hash === '#dashboard') {
-        setCurrentView('dashboard');
-      } else if (hash.startsWith('#docs/')) {
-        const docId = hash.replace('#docs/', '');
-        setCurrentView('docs');
-        setActiveDocId(docId);
-      }
-    };
-
-    handleHash();
-    window.addEventListener('hashchange', handleHash);
-    return () => window.removeEventListener('hashchange', handleHash);
-  }, []);
-
   const handleNavigate = (view: ViewMode, docId?: string) => {
     setCurrentView(view);
     if (docId) {
       setActiveDocId(docId);
-      window.location.hash = `docs/${docId}`;
-    } else if (view === 'docs') {
-      window.location.hash = 'docs';
-    } else if (view === 'dashboard') {
-      window.location.hash = 'dashboard';
-    } else {
-      window.location.hash = '';
+    }
+    if (view === 'landing') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };

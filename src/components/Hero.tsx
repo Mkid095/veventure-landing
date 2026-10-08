@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { ArrowRight, Check, Copy, Terminal } from 'lucide-react';
 import { ViewMode } from '../types';

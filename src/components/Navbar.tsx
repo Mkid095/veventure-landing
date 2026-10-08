@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { ArrowUpRight, Menu, X, ArrowRight, BookOpen, LayoutDashboard, Home } from 'lucide-react';
 import { ViewMode } from '../types';
