@@ -1,0 +1,6 @@
+{
+  "name": "Viventure — WhatsApp Business API",
+  "description": "WhatsApp Business API built for developers. Manage instances, messages, webhooks, and MCP tools behind one canonical REST API.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
